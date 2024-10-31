@@ -6,11 +6,16 @@
   <body>
     {% if session %}
     <h1>Welcome {{session.userinfo.name}}!</h1>
-    <p><a href="/logout" id="qsLogoutBtn">Logout</a></p>
+    <p><a href="/logout" id="qsLogoutBtn">Cerrar sesión</a></p>
     <div><pre>{{pretty}}</pre></div>
+
+   <p><a href="/edit_profile" id="editProfileBtn">
+    <button>Editar datos</button>
+   </a></p>
+
     {% else %}
-    <h1 id="profileDropDown">Welcome Guest</h1>
-    <p><a href="/login" id="qsLoginBtn">Login</a></p>
+    <h1 id="profileDropDown">Bienevenido</h1>
+    <p><a href="/login" id="qsLoginBtn">Iniciar sesión</a></p>
     {% endif %}
   </body>
 </html>

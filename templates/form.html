@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Auth0 Example</title>
+  </head>
+  <body>
+    {% if session %}
+    <h1>Welcome {{session.userinfo.name}}!</h1>
+    <p><a href="/logout" id="qsLogoutBtn">Logout</a></p>
+    <div><pre>{{pretty}}</pre></div>
+
+    <form action="/edit_profile" method="POST">
+      <label for="documentType">Tipo de documento:</label>
+      <select id="documentType" name="documentType" required>
+        <option value="CC">Cédula de Ciudadanía</option>
+        <option value="TI">Tarjeta de Identidad</option>
+        <option value="CE">Cédula de Extranjería</option>
+        <option value="Passport">Pasaporte</option>
+      </select><br><br>
+
+      <label for="documentNumber">Número de documento:</label>
+      <input type="text" id="documentNumber" name="documentNumber" required><br><br>
+
+      <label for="address">Dirección:</label>
+      <input type="text" id="address" name="address" required><br><br>
+
+      <label for="phone">Teléfono:</label>
+      <input type="tel" id="phone" name="phone" required><br><br>
+
+      <button type="submit">Enviar</button>
+    </form>
+    <div><pre>{{update_data}}</pre></div>
+    <div><pre>{{response}}</pre></div>
+
+    {% else %}
+    <h1 id="profileDropDown">Welcome Guest</h1>
+    <p><a href="/login" id="qsLoginBtn">Login</a></p>
+    {% endif %}
+  </body>
+</html>
